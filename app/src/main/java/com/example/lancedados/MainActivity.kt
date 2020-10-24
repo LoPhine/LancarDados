@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val botaoLancarDados = findViewById<Button>(R.id.lanceDadosBotao)
 
-        val ImgDado1 = findViewById<ImageView>(R.id.dado1)
+        val ImgDado1 = findViewById<ImageView>(R.id.playerNameText)
         val ImgDado2 = findViewById<ImageView>(R.id.dado2)
 
         botaoLancarDados.setOnClickListener {
@@ -22,6 +21,9 @@ class MainActivity : AppCompatActivity() {
             ImgDado1.setImageResource(escolherImg(numero))
             ImgDado2.setImageResource(escolherImg(numero))
         }
+        val playerName = getIntent().getStringExtra("playerName")
+        val labelTextView = findViewById<TextView>(R.id.textView)
+        labelTextView.text = "Olá, $playerName"
     }
 
 
